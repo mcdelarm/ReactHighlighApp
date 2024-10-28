@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import League_home from './League_home';
 
 
 const LeagueGames = ({date}) => {
@@ -83,20 +84,21 @@ function areGames() {
   return true;
 }
 
-const renderLeagueMatches = () => {
-  console.log(epl);
-  console.log(laliga)
-  return <div></div>;
-}
   return (
     <div>
       {loading ? (
         <p>Loading...</p>
       ) : areGames() ? (
-        renderLeagueMatches()
+        <>
+          <League_home data={epl}/>
+          <League_home data={laliga}/>
+          <League_home data={bundesliga}/>
+          <League_home data={serieA}/>
+          <League_home data={ligue1}/>
+        </>
       ) : (
         <p>No games in the top 5 leagues on selected date.</p>
-      )};
+      )}
     </div>
   );
 }
