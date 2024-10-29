@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import League_home from './League_home';
+import { options } from './apiConfig';
 
 
 const LeagueGames = ({date}) => {
@@ -17,15 +18,8 @@ const LeagueGames = ({date}) => {
       const month = String(date.getMonth() + 1).padStart(2, '0');
       const day = String(date.getDate()).padStart(2, '0');
       const formattedDate = `${year}-${month}-${day}`;
-      const url = `https://api-football-v1.p.rapidapi.com/v3/fixtures?date=${formattedDate}`;
-      const options = {
-        method: 'GET',
-        headers: {
-          'x-rapidapi-key': 'f7cb245680mshcae480ffdf42dccp1f6380jsn713b2d42b6a6',
-          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com'
-        }
-      };
-  
+      const url = `https://api-football-v1.p.rapidapi.com/v3/fixtures?date=${formattedDate}&timezone=America%2FNew_York`;
+      
       try {
         setLoading(true);
         const response = await fetch(url, options);
@@ -90,11 +84,11 @@ function areGames() {
         <p>Loading...</p>
       ) : areGames() ? (
         <>
-          <League_home data={epl}/>
-          <League_home data={laliga}/>
-          <League_home data={bundesliga}/>
-          <League_home data={serieA}/>
-          <League_home data={ligue1}/>
+          <League_home data={epl} league_id={39}/>
+          <League_home data={laliga} league_id={140}/>
+          <League_home data={bundesliga} league_id={78}/>
+          <League_home data={serieA} league_id={135}/>
+          <League_home data={ligue1} league_id={61}/>
         </>
       ) : (
         <p>No games in the top 5 leagues on selected date.</p>
