@@ -1,7 +1,9 @@
 export const options = {
   method: 'GET',
   headers: {
-    'x-rapidapi-key': 'f7cb245680mshcae480ffdf42dccp1f6380jsn713b2d42b6a6',
+    'x-rapidapi-key': process.env.REACT_APP_FOOTBALL_API_KEY,
     'x-rapidapi-host': 'api-football-v1.p.rapidapi.com'
   }
 };
+
+export const youtube_api_key = process.env.REACT_APP_YOUTUBE_API_KEY;

@@ -84,11 +84,11 @@ function areGames() {
         <p>Loading...</p>
       ) : areGames() ? (
         <>
-          <League_home data={epl} league_id={39}/>
-          <League_home data={laliga} league_id={140}/>
-          <League_home data={bundesliga} league_id={78}/>
-          <League_home data={serieA} league_id={135}/>
-          <League_home data={ligue1} league_id={61}/>
+          <League_home data={epl}/>
+          <League_home data={laliga}/>
+          <League_home data={bundesliga}/>
+          <League_home data={serieA}/>
+          <League_home data={ligue1}/>
         </>
       ) : (
         <p>No games in the top 5 leagues on selected date.</p>

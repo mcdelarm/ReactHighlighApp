@@ -42,14 +42,13 @@ const Match_home = ({teams, goals, fixture}) => {
     }
   }
   return (
-    <div>
+    <div className='home-fixture-container'>
       <Link to={`/fixture/${fixture['id']}`}>
         <p>
-          {renderStatus()}
           {homeTeam['name']}
-          <img src={homeTeam['logo']} alt="Logo for home team"/>
+          <img src={homeTeam['logo']} alt="Logo for home team" className='home-logo'/>
           {renderScore()} 
-          <img src={awayTeam['logo']} alt="Logo for away team"/>
+          <img src={awayTeam['logo']} alt="Logo for away team" className='home-logo'/>
           {awayTeam['name']}
         </p>
       </Link>

@@ -6,11 +6,17 @@ function addDays(date, days) {
   return result;
 }
 
+const getYesterdayDate = () => {
+  const today = new Date();
+  today.setDate(today.getDate() - 1);
+  return today.toISOString().split('T')[0];
+}
+
 const Nav = ({date, setDate}) => {
-  const leftestDate = addDays(date, -2);
-  const leftDate = addDays(date, -1);
-  const rightDate = addDays(date, 1);
-  const rightestDate = addDays(date, 2);
+  const prevDate1 = addDays(date, -4);
+  const prevDate2 = addDays(date, -3);
+  const prevDate3 = addDays(date, -2);
+  const prevDate4 = addDays(date, -1);
 
   const handleDateSelect = (date) => {
     setDate(date);
@@ -22,16 +28,19 @@ const Nav = ({date, setDate}) => {
     setDate(selectedDate);
   }
 
+  
+
+
   return (
-    <div>
+    <div className='date-container'>
       <h2>Date</h2>
-      <input type='date' onChange={handleDateInputChange} value={date.toISOString().split('T')[0]}/>
+      <input type='date' onChange={handleDateInputChange} value={date.toISOString().split('T')[0]} max={getYesterdayDate()}/>
       <div>
-        <button onClick={() => handleDateSelect(leftestDate)}>{leftestDate.toDateString()}</button>
-        <button onClick={() => handleDateSelect(leftDate)}>{leftDate.toDateString()}</button>
+        <button onClick={() => handleDateSelect(prevDate1)}>{prevDate1.toDateString()}</button>
+        <button onClick={() => handleDateSelect(prevDate2)}>{prevDate2.toDateString()}</button>
+        <button onClick={() => handleDateSelect(prevDate3)}>{prevDate3.toDateString()}</button>
+        <button onClick={() => handleDateSelect(prevDate4)}>{prevDate4.toDateString()}</button>
         <button style={{fontWeight: 'bold'}}>{date.toDateString()}</button>
-        <button onClick={() => handleDateSelect(rightDate)}>{rightDate.toDateString()}</button>
-        <button onClick={() => handleDateSelect(rightestDate)}>{rightestDate.toDateString()}</button>
       </div>
     </div>
   )
