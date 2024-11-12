@@ -4,4 +4,4 @@ A client-side web application that employs two APIs asynchronously:
   1. Youtube API
   2. Football-API
 
-The application allows user to input a date to retrieve soccer fixtures from the top 5 European leagues. If these fixtures are clicked, the user is brought to a separate page where the highlights youtube video for the fixture is displayed.
+The application allows user to input a date to retrieve soccer fixtures from the top 5 European leagues. If these fixtures are clicked, the user is brought to a separate page where the highlights youtube video for the fixture is displayed. To use, sign up for an API key for both the Youtube and Football-API and create a .env file to store the two keys. 
